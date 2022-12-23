@@ -1,0 +1,378 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+input, textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  box-shadow: 0 1px 10px rgba(0, 26, 255, 0.1019607843);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input[type=submit] {
+  transition: filter 0.3s ease-in;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  filter: brightness(90%);
+}
+
+button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+@keyframes animation-diamond {
+  0%, 100% {
+    filter: brightness(200%);
+  }
+  50% {
+    filter: brightness(90%);
+  }
+}
+.message-box {
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  animation-name: animation-pulse;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes animation-pulse {
+  0%, 100% {
+    box-shadow: 0px 1px 5px rgba(119, 117, 117, 0.4);
+  }
+  50% {
+    box-shadow: 0px 1px 5px rgb(77, 77, 77);
+  }
+}
+.message-box.danger {
+  background: red;
+}
+.message-box.success {
+  background: rgb(108, 217, 87);
+}
+
+body {
+  position: relative;
+  height: 100vh;
+}
+body aside {
+  position: absolute;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 10px rgba(0, 94, 255, 0.2039215686);
+  z-index: 1;
+  left: -100%;
+  transition: left 0.5s ease;
+}
+body aside section.ctn-modal-form-all {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(128, 128, 128, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 10px rgba(0, 162, 222, 0.3);
+}
+body aside section.ctn-modal-form-all .ctn-btn-close-modal {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+body aside section.ctn-modal-form-all .ctn-btn-close-modal button {
+  background: rgba(255, 0, 0, 0.1568627451);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 7px;
+  border-radius: 40%;
+  color: red;
+  font-weight: 600;
+  font-size: 1em;
+  transition: box-shadow, margin 0.3s ease;
+}
+body aside section.ctn-modal-form-all .ctn-btn-close-modal button:hover {
+  box-shadow: 0 1px 10px rgba(0, 94, 255, 0.2039215686);
+  margin: 2px;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form-info .ctn-form-title p {
+  text-align: center;
+  padding: 10px;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form div {
+  padding: 5px;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 300px;
+  margin: 0 auto;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form .ctn-input {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form .ctn-input input {
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: transform 0.3s ease;
+  background: #fff;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 3px solid black;
+  display: grid;
+  place-content: center;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form .ctn-input input::before {
+  transition: transform 0.4s ease;
+  content: "";
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  background: red;
+  transform: scale(0);
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form .ctn-input input:checked::before {
+  transform: scale(1);
+}
+body aside.show-window {
+  left: 0;
+}
+body header.ctn-front-page {
+  background: rgba(0, 163, 222, 0.3450980392);
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+body header.ctn-front-page p {
+  display: block;
+}
+body header.ctn-front-page .btn-show-modal button {
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease;
+}
+body header.ctn-front-page .btn-show-modal button:hover {
+  box-shadow: 2px 2px 0px black;
+}
+body .ctn-all-page {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 10px;
+  padding: 15px;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-info {
+  background-color: rgba(0, 163, 222, 0.062745098);
+  box-shadow: 0 1px 10px rgba(0, 163, 222, 0.3450980392);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-info .title-form {
+  text-align: center;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates {
+  display: grid;
+  gap: 10px;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input {
+  text-align: center;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input input {
+  max-width: 300px;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input input[type=submit] {
+  border: 1px solid gray;
+  font-weight: 600;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input label[for=typeDate] {
+  font-weight: 600;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input select[name=typeDate] {
+  background: rgba(0, 94, 255, 0.2039215686);
+  border: none;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input p {
+  font-weight: 600;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input .ctn-input-type {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+body .ctn-all-page .ctn-all-form .ctn-form-all-inputs .form-dates .ctn-form-input .ctn-input {
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-info .ctn-cards-title {
+  text-align: center;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-info .ctn-cards-title p {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid rgba(0, 163, 222, 0.3450980392);
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 10px 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card {
+  border-radius: 5%;
+  box-shadow: 0px 0px 5px 1px rgba(0, 94, 255, 0.2039215686);
+  padding: 10px;
+  min-height: 200px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user {
+  display: grid;
+  grid-template-columns: 0.6fr 0.4fr;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-text {
+  justify-self: flex-start;
+  margin-bottom: 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-text .ctn-card-info-user-text-name {
+  font-weight: 600;
+  text-shadow: 0 1px 10px rgba(0, 94, 255, 0.2039215686);
+  font-size: 1.1em;
+  border-bottom: 1px solid black;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-text p span {
+  font-weight: 600;
+  margin-right: 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-type {
+  justify-self: flex-end;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-type::before {
+  content: "💮";
+  animation-name: animation-diamond;
+  animation-timing-function: ease;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-type.premium::before {
+  content: "💢";
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-user .ctn-card-info-user-type.estandar::before {
+  content: "💠";
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-type p {
+  padding: 5px 0 0 0;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-type p::before {
+  content: "✳️";
+  margin-right: 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-descrip p {
+  position: relative;
+  padding: 10px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-descrip p::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-descrip p::before {
+  content: "🔸";
+  margin-right: 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-time p {
+  display: grid;
+  justify-content: space-evenly;
+  place-items: center;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-time p span {
+  padding: 5px 10px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-time p span:nth-child(1)::before {
+  content: "Fecha: ";
+  background: steelblue;
+  color: white;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-right: 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-info-date .ctn-card-info-date-time p span:nth-child(2)::before {
+  content: "Hora: ";
+  background: yellowgreen;
+  color: white;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-right: 5px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn {
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn::before {
+  background: black;
+  border: 1px solid whitesmoke;
+  position: absolute;
+  z-index: 100;
+  color: white;
+  padding: 2px 5px;
+  font-size: 1em;
+  top: 100%;
+  left: 100%;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn:hover {
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.5);
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-del {
+  background: red;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-del:hover::before {
+  content: "Eliminar Cita";
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-edit {
+  background: cornflowerblue;
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-edit:hover::before {
+  content: "Editar Cita";
+}
+body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn i {
+  font-size: 1.5em;
+}
+
+/*# sourceMappingURL=main.css.map */

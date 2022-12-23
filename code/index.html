@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Pacients</title>
+    <link rel="stylesheet" href="styles/css/main.css">
+    
+    <!-- Libraries CDN's -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Ventana modal para la Creación de Usuarios -->
+    <aside class="ctn-modal-all" id="modal-form">
+        <section class="ctn-modal-form-all">
+            <div class="ctn-btn-close-modal" id="btn-close-modal">
+                <button>X</button>
+            </div>
+            <!-- Titulo antes del Formulario -->
+            <article class="ctn-modal-form-info">
+            <div class="ctn-form-title">
+                <p>¡Crea un Nuevo Usuario!</p>
+                </div>
+            </article>
+            <!-- Ventana de Formulario para la asignación de Valores -->
+            <article class="ctn-modal-form">
+                <form action="" id="form-modal" class="ctn-form">
+                    <div class="ctn-form-input">
+                        <input type="text" name="nameUser" placeholder="Nombre Completo">
+                    </div>
+                    <div class="ctn-form-input">
+                        <input type="number" name="telefoneUser" placeholder="Numero de Telefono">
+                    </div>
+                    <div class="ctn-form-input">
+                        <input type="email" name="emailUser" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="ctn-form-input">
+                        <div class="ctn-inputsradio-form">
+                            <div class="ctn-input">
+                                <label for="estandar">Estandar</label>
+                                <input type="radio" id="estandar" value="0" name="typeUser">
+                            </div>
+                            <div class="ctn-input">
+                                <label for="premium">Premium</label>
+                                <input type="radio" id="premium" value="1" name="typeUser">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ctn-form-input">
+                        <input type="submit" value="Crear">
+                    </div>
+                </form>
+            </article>
+        </section>
+    </aside>
+    <!-- Pie de Página Superior -->
+    <header class="ctn-front-page">
+        <p class="title-front-page">Administra las Citas de Tu Consultorio</p>
+        <div class="btn-show-modal">
+            <button class="btn-showmodal" id="btn-adduser-modal" title="Mostrar ventana para Agregar nuevo usuario">Agregar Usuario</button>
+        </div>
+    </header>
+    <!-- Contenido total del viewport de Página -->
+    <div class="ctn-all-page">
+        <section class="ctn-all-form">
+            <article class="ctn-form-all-info">
+                <div class="title-form">
+                    <p>Rellena los Valores y Asigna una Cita</p>
+                </div>
+            </article>
+            <article class="ctn-form-all-inputs">
+                <form action="" class="form-dates" id="form-dates">
+                    <div class="ctn-form-input">
+                        <input type="number"  name="idUser" placeholder="N. de Usuario">
+                    </div>
+                    <div class="ctn-form-input">
+                        <div class="ctn-input-type">
+                            <label for="typeDate">Tipo de  Cita</label>
+                            <select id="typeDate" name="typeDate">
+                                <option value="">Seleccionar</option>
+                                <option value="0">Medicina General</option>
+                                <option value="1">Medicina Interna</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ctn-form-input">
+                        <textarea name="reasonDate" placeholder="Motivo de la Cita"></textarea>
+                    </div>
+                    <div class="ctn-form-input">
+                        <p>Indica la Fecha y Hora de Tu Cita</p>
+                        <div class="ctn-input">
+                            <input type="date" name="dateDate" placeholder="Fecha">
+                            <input type="time" name="timeDate" placeholder="Hora" value="00:00">
+                        </div>
+                    </div>
+                    <div class="ctn-form-input">
+                        <input type="submit" value="Crear">
+                    </div>
+                </form>
+            </article>
+        </section>
+        <section class="ctn-cards-all">
+            <article class="ctn-cards-info">
+                <div class="ctn-cards-title">
+                    <p>Citas Pendientes</p>
+                </div>
+            </article>
+            <article class="ctn-cards-stack" id="dates-stack">
+                
+                <div class="ctn-card">
+                    <!-- Top card - Info user -->
+                    <div class="ctn-card-info-user">
+                        <div class="ctn-card-info-user-text">
+                            <p class="ctn-card-info-user-text-name">David Bulla</p>
+                            <p><span>Id:</span>1102312</p>
+                            <p><span>Tel:</span>8902172312</p>
+                        </div>
+                        <div class="ctn-card-info-user-type premium" title="Tipo de Cliente"></div>
+                    </div>
+                    <!-- Información de la cita -->
+                    <div class="ctn-card-info-date">
+                        <div class="ctn-card-info-date-type">
+                            <p>Medicina Interna</p>
+                        </div>
+                        <div class="ctn-card-info-date-descrip">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni atque debitis nesciunt esse quo ratione cum ea, quia quae totam.</p>
+                        </div>
+                        <div class="ctn-card-info-date-time">
+                            <p><span>10/12/2022</span><span>14:08</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción -->
+                    <div class="ctn-card-btns">
+                        <button class="btn btn-del">
+                            <i class="large material-icons">delete_forever</i>
+                        </button>
+                        <button class="btn btn-edit">
+                            <i class="large material-icons">create</i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>

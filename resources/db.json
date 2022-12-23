@@ -1,0 +1,48 @@
+{
+    "users":[
+        {
+            "id":"IU12312IU",
+            "fullname":"David santiago Bulla Díaz",
+            "telephone":"3145670989",
+            "email":"lasparodias60@gmail.com",
+            "typeUser":"Premium"
+        },
+        {
+            "id":"OU12312IA",
+            "fullname":"David santiago Bulla Díaz",
+            "telephone":"3145670989",
+            "email":"lasparodias60@gmail.com",
+            "typeUser":"Premium"
+        }
+    ],
+    "dates":[
+        {
+            "id":1,
+            "userId":"OU12312IA",
+            "typeDate":"Medicina Interna",
+            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
+            "dataDate":"30/11/2022 - 14:55"
+        },
+        {
+            "id":2,
+            "userId":"IU12312IU",
+            "typeDate":"Medicina General",
+            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
+            "dataDate":"30/11/2022 - 14:55"
+        },
+        {
+            "id":3,
+            "userId":"IU12312IU",
+            "typeDate":"Medicina General",
+            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
+            "dataDate":"30/11/2022 - 14:55"
+        },
+        {
+            "id":4,
+            "userId":"IU12312IU",
+            "typeDate":"Medicina General",
+            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
+            "dataDate":"30/11/2022 - 14:55"
+        }
+    ]
+}

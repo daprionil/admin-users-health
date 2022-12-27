@@ -1,0 +1,19 @@
+{
+  "name": "administrador_de_pacientes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "five-server": "^0.1.8",
+    "json-server": "^0.17.1",
+    "sass": "^1.57.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server -w ./resources/db.json -p 4000",
+    "sass-code": "sass -w ./code/styles/scss:./code/styles/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

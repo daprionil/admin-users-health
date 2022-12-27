@@ -13,6 +13,7 @@ input, textarea {
   box-shadow: 0 1px 10px rgba(0, 26, 255, 0.1019607843);
   border-radius: 10px;
   padding: 10px;
+  transition: border 0.5 ease;
 }
 
 input[type=submit] {
@@ -59,6 +60,10 @@ button {
 }
 .message-box.success {
   background: rgb(108, 217, 87);
+}
+
+.input-danger {
+  border: 3px solid rgba(255, 50, 90, 0.9);
 }
 
 /*# sourceMappingURL=global_style.css.map */

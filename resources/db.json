@@ -1,48 +1,65 @@
 {
-    "users":[
-        {
-            "id":"IU12312IU",
-            "fullname":"David santiago Bulla Díaz",
-            "telephone":"3145670989",
-            "email":"lasparodias60@gmail.com",
-            "typeUser":"Premium"
-        },
-        {
-            "id":"OU12312IA",
-            "fullname":"David santiago Bulla Díaz",
-            "telephone":"3145670989",
-            "email":"lasparodias60@gmail.com",
-            "typeUser":"Premium"
-        }
-    ],
-    "dates":[
-        {
-            "id":1,
-            "userId":"OU12312IA",
-            "typeDate":"Medicina Interna",
-            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
-            "dataDate":"30/11/2022 - 14:55"
-        },
-        {
-            "id":2,
-            "userId":"IU12312IU",
-            "typeDate":"Medicina General",
-            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
-            "dataDate":"30/11/2022 - 14:55"
-        },
-        {
-            "id":3,
-            "userId":"IU12312IU",
-            "typeDate":"Medicina General",
-            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
-            "dataDate":"30/11/2022 - 14:55"
-        },
-        {
-            "id":4,
-            "userId":"IU12312IU",
-            "typeDate":"Medicina General",
-            "motiveDate":"lorem ipsum dolor et semet etme insu lires poingo piram et atde",
-            "dataDate":"30/11/2022 - 14:55"
-        }
-    ]
+  "users": [
+    {
+      "id": "8C419149H4",
+      "nameUser": "David",
+      "telephoneUser": "3177714804",
+      "emailUser": "gmail@gmail.com",
+      "typeUser": "1"
+    },
+    {
+      "id": "E4N551FC94",
+      "nameUser": "David Santiago Bulla Diaz Bulla Diaz",
+      "telephoneUser": "3177714804",
+      "emailUser": "lasparodias60@gmail.com",
+      "typeUser": "1"
+    },
+    {
+      "id": "418L5539E2",
+      "nameUser": "David",
+      "telephoneUser": "12031829",
+      "emailUser": "gmail@gmail.com",
+      "typeUser": "0"
+    },
+    {
+      "id": "JD39Q65RBR",
+      "nameUser": "Dfasdas",
+      "telephoneUser": "213123",
+      "emailUser": "1412@gmail.com",
+      "typeUser": "0"
+    },
+    {
+      "id": "8JOOLKJR47",
+      "nameUser": "Fabio",
+      "telephoneUser": "3124512512",
+      "emailUser": "fa@gmail.com",
+      "typeUser": "1"
+    }
+  ],
+  "dates": [
+    {
+      "id": 1,
+      "userId": "OU12312IA",
+      "typeDate": "Medicina Interna",
+      "reasonDate": "lorem ipsum dolor et semet etme insu lires poingo piram et atde",
+      "dataDate": "30/11/2022",
+      "timeDate": "14:45"
+    },
+    {
+      "idUser": "4K49NCP46Q",
+      "typeDate": "1",
+      "reasonDate": "Severo",
+      "dateDate": "2022-12-07",
+      "timeDate": "14:39",
+      "id": 2
+    },
+    {
+      "idUser": "8C419149H4",
+      "typeDate": "1",
+      "reasonDate": "Severo",
+      "dateDate": "2021-11-25",
+      "timeDate": "15:59",
+      "id": 3
+    }
+  ]
 }

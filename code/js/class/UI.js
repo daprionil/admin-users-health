@@ -2,21 +2,22 @@
  * Manage all interface changes in the spa
  */
 
-export default class{
+class UI{
     //Show modal Add users
-    toggleModal({el,text}){
+    toggleElement({el,text}){
         el.classList.toggle(`${text}`);
     };
 
     //show modal view
     viewMessageForm({form,msgBase,msgAux,type = 'danger'}){
         //Create element document, Body of message box
-        if(form.querySelector('.message-box')) return;
+        const el = form.querySelector('.message-box');
+        if(el) el.remove();
         
         //If not exist the element in the document
         const msgBox = document.createElement('div');
         msgBox.classList.add('message-box',`${type}`);
-        msgBox.innerHTML = `<p><strong>${msgBase}</strong>${msgAux}</p>`;
+        msgBox.innerHTML = `<p><strong>${msgBase}</strong> ${msgAux}</p>`;
         
         //adding element msgBox
         const afterForm = form.querySelector('input[type="submit"]').parentElement;
@@ -27,4 +28,17 @@ export default class{
             msgBox.remove();
         }, 4000);
     };
+
+    //Print invalid inputs in Form
+    printInputsInvalids({form,classEl}){
+        //Iterates in input form's 
+        Object.values(form).filter(el => el.type !== 'submit').forEach(el => {
+            //Print invalids Inputs
+            el.classList.remove(classEl);
+            if(el.value.trim() === ''){
+                el.classList.add(classEl);
+            };
+        });
+    }
 };
+export default new UI();

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Pacients</title>
-    <link rel="stylesheet" href="styles/css/main.css">
-    
-    <!-- Libraries CDN's -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <!-- Ventana modal para la Creación de Usuarios -->
-    <aside class="ctn-modal-all" id="modal-form">
-        <section class="ctn-modal-form-all">
-            <div class="ctn-btn-close-modal" id="btn-close-modal">
-                <button>X</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>App Pacients</title>
+        <link rel="stylesheet" href="styles/css/main.css">
+        
+        <!-- Libraries CDN's -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Ventana modal para la Creación de Usuarios -->
+        <aside class="ctn-modal-all" id="modal-form">
+            <div class="btn-close-modal" id="btnCloseModal">
+                <button>
+                    <i class="large material-icons">add</i>
+                </button>
             </div>
-            <!-- Titulo antes del Formulario -->
-            <article class="ctn-modal-form-info">
-            <div class="ctn-form-title">
-                <p>¡Crea un Nuevo Usuario!</p>
+            <section class="ctn-modal-form-all">
+                <!-- Titulo antes del Formulario -->
+                <article class="ctn-modal-form-info">
+                    <div class="ctn-form-title">
+                        <p>¡Crea un Nuevo Usuario!</p>
                 </div>
             </article>
             <!-- Ventana de Formulario para la asignación de Valores -->
             <article class="ctn-modal-form">
-                <form action="" id="form-modal" class="ctn-form">
+                <form id="form-modal" class="ctn-form">
                     <div class="ctn-form-input">
                         <input type="text" name="nameUser" placeholder="Nombre Completo">
                     </div>
                     <div class="ctn-form-input">
-                        <input type="number" name="telefoneUser" placeholder="Numero de Telefono">
+                        <input type="number" name="telephoneUser" placeholder="Numero de Telefono">
                     </div>
                     <div class="ctn-form-input">
                         <input type="email" name="emailUser" placeholder="Correo Electrónico">
@@ -70,9 +72,9 @@
                 </div>
             </article>
             <article class="ctn-form-all-inputs">
-                <form action="" class="form-dates" id="form-dates">
+                <form class="form-dates" id="form-dates">
                     <div class="ctn-form-input">
-                        <input type="number"  name="idUser" placeholder="N. de Usuario">
+                        <input type="text"  name="idUser" placeholder="Id. de Usuario">
                     </div>
                     <div class="ctn-form-input">
                         <div class="ctn-input-type">
@@ -91,7 +93,7 @@
                         <p>Indica la Fecha y Hora de Tu Cita</p>
                         <div class="ctn-input">
                             <input type="date" name="dateDate" placeholder="Fecha">
-                            <input type="time" name="timeDate" placeholder="Hora" value="00:00">
+                            <input type="time" name="timeDate" placeholder="Hora">
                         </div>
                     </div>
                     <div class="ctn-form-input">

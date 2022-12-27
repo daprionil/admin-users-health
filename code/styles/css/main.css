@@ -14,6 +14,7 @@ input, textarea {
   box-shadow: 0 1px 10px rgba(0, 26, 255, 0.1019607843);
   border-radius: 10px;
   padding: 10px;
+  transition: border 0.5 ease;
 }
 
 input[type=submit] {
@@ -62,13 +63,17 @@ button {
   background: rgb(108, 217, 87);
 }
 
+.input-danger {
+  border: 3px solid rgba(255, 50, 90, 0.9);
+}
+
 body {
   position: relative;
   height: 100vh;
 }
 body aside {
-  position: absolute;
-  background: white;
+  position: fixed;
+  background: rgb(255, 255, 255);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -76,8 +81,25 @@ body aside {
   align-items: center;
   box-shadow: 0 1px 10px rgba(0, 94, 255, 0.2039215686);
   z-index: 1;
-  left: -100%;
+  left: -110%;
   transition: left 0.5s ease;
+}
+body aside .btn-close-modal {
+  position: absolute;
+  top: 5%;
+  left: 110%;
+  transition: left 0.5s ease;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background: white;
+}
+body aside .btn-close-modal button {
+  display: flex;
+  place-content: center;
+  padding: 5px 10px;
+  font-weight: 600;
+  background: transparent;
+  transition: transform 0.5s ease;
 }
 body aside section.ctn-modal-form-all {
   position: relative;
@@ -103,7 +125,7 @@ body aside section.ctn-modal-form-all .ctn-btn-close-modal button {
   color: red;
   font-weight: 600;
   font-size: 1em;
-  transition: box-shadow, margin 0.3s ease;
+  transition: box-shadow, margin 0.5s ease;
 }
 body aside section.ctn-modal-form-all .ctn-btn-close-modal button:hover {
   box-shadow: 0 1px 10px rgba(0, 94, 255, 0.2039215686);
@@ -131,7 +153,7 @@ body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-in
   box-shadow: none;
   -webkit-appearance: none;
   appearance: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   background: #fff;
   width: 1em;
   height: 1em;
@@ -141,7 +163,7 @@ body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-in
   place-content: center;
 }
 body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form .ctn-input input::before {
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
   content: "";
   width: 1.3em;
   height: 1.3em;
@@ -154,6 +176,13 @@ body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-in
 }
 body aside.show-window {
   left: 0;
+}
+body aside.show-window .btn-close-modal {
+  left: 90%;
+  background: red;
+}
+body aside.show-window .btn-close-modal button {
+  transform: rotate(135deg);
 }
 body header.ctn-front-page {
   background: rgba(0, 163, 222, 0.3450980392);
@@ -169,7 +198,7 @@ body header.ctn-front-page .btn-show-modal button {
   border-radius: 10px;
   padding: 10px;
   font-weight: 600;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.5s ease;
 }
 body header.ctn-front-page .btn-show-modal button:hover {
   box-shadow: 2px 2px 0px black;
@@ -343,7 +372,7 @@ body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn
   position: relative;
   padding: 5px 10px;
   border-radius: 5px;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.5s ease;
 }
 body .ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn::before {
   background: black;

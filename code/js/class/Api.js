@@ -5,19 +5,16 @@
  * Route to Dates: http://localhost:4000/dates/
  * Route to Users: http://localhost:4000/users/
  * 
- * 
- * ######################### ERROR
- * fetch(), Al USAR post, la página se recarga.
- * #$%AA
  */
 
 class Api{
-    //################## USERS ###################
     constructor(){
         this.route = 'http://localhost:4000';
         this.users = [];
         this.dates = [];
     }
+    //################## USERS ###################
+    
     //Get users for validate
     async validateGetUser(id){
         return this.users.some(user => user.id === id);
@@ -46,6 +43,7 @@ class Api{
         };
     };
 
+    //Get all Users in DBJson
     async getUsers(){
         //Get all dates in Data Base
         const url = `${this.route}/users/`;
@@ -56,8 +54,44 @@ class Api{
             return data;
         } catch (error) {
             console.log(error);
-        }
-    }
+        };
+    };
+
+    //Delete one user by Id
+    async deleteUser({id,cb}){
+        //Url to delete user
+        const url = `${this.route}/users/${id}`;
+        //Options by fetch to delete User
+        const options = {method: 'DELETE'};
+
+        try {
+            await fetch(url,options);
+            await this.deleteDatesByUser(id);
+
+            this.users = await this.getUsers();
+
+            cb({users:this.users});
+        } catch (err) {
+            console.log(err);
+        };
+    };
+    
+    //Delete all Dates by User
+    async deleteDatesByUser(id){
+        //Get dates by User
+        try {
+            const data = this.dates.filter(date => date.idUser === id);
+
+            //Iterated Data to Delete Dates one by one.
+            data.forEach(({id}) => {
+                console.log(id);
+                this.deleteDate({id});
+            });
+
+        } catch (err) {
+            console.log(err);
+        };
+    };
 
     //############ Dates ###############
     async addDate({date,cb}){
@@ -75,9 +109,12 @@ class Api{
         //Adding Date in Data Base JSON
         try {
             await fetch(url,options);
-            cb();
+            //Set values in API
+            this.dates = await this.getDates();
+            //Execute Function
+            cb({dates:this.dates,users:this.users});
         } catch (error) {
-            console.log(error);    
+            console.log(error);
         }
     }
 
@@ -97,7 +134,10 @@ class Api{
         //Adding Date in Data Base JSON
         try {
             await fetch(url,options);
-            cb();
+            //Set values in API
+            this.dates = await this.getDates();
+            //Execute Function
+            cb({dates:this.dates,users:this.users});
         } catch (error) {
             console.log(error);    
         }
@@ -118,7 +158,7 @@ class Api{
     };
     
     //Delete Date
-    async deleteDate({id,cb}){
+    async deleteDate({id,cb = () => {}}){
         //Url to add Date in JSON Data Base
         const url = `${this.route}/dates/${id}`;
 
@@ -128,7 +168,11 @@ class Api{
         //Adding Date in Data Base JSON
         try {
             await fetch(url,options);
-            cb();
+            //Set values in API
+            this.dates = await this.getDates();
+            
+            //Execute Function
+            cb({dates:this.dates,users:this.users});
         } catch (error) {
             console.log(error);    
         }

@@ -1,6 +1,6 @@
-import ui from './class/UI.js';
+import UI from './class/UI.js';
 import * as sel from './selectors.js';
-import api from './class/Api.js';
+import Api from './class/Api.js';
 
 let modeDateForm = false;
 
@@ -38,10 +38,10 @@ async function addDate(evt) {
     const validate = Object.values(date).some(val => val === '');
 
     //If any value in the form is empty, print the input and see the message in the GUI
-    ui.printInputsInvalids({form:$,classEl:'input-danger'});
+    UI.printInputsInvalids({form:$,classEl:'input-danger'});
     if(validate){
         //View message in appointment creation form
-        ui.viewMessageForm({
+        UI.viewMessageForm({
             form:$,msgBase:'¡ Solicitud Inválida !',
             msgAux:'Completa todos los Campos',
         });
@@ -49,11 +49,11 @@ async function addDate(evt) {
     };
     
     //If the userID in the form doesn't exist
-    const userExiste = await api.validateGetUser(date.idUser);
+    const userExiste = await Api.validateGetUser(date.idUser);
 
     if(!userExiste){
         //View message by invalid userId
-        ui.viewMessageForm({
+        UI.viewMessageForm({
             form:$,msgBase:'¡ Usuario Inválido !',
             msgAux:'Ingresa un Usuario Existente'
         });
@@ -61,21 +61,19 @@ async function addDate(evt) {
     };
     
     //View Spinner in Form
-    const loader = ui.printSpinnerForm({form:$});
+    const loader = UI.printSpinnerForm({form:$});
     
     //Reset all form
     $.reset();
     
     // # Actions after Affected date in DB Json
-    const cbAfterAffectedDate = msgBase => async () => {
+    const cbAfterAffectedDate = msgBase => async ({dates,users}) => {
         //Print Dates
-        api.dates = await api.getDates();
-        ui.printAllDates(api.dates,api.users,sel.datesStack);
+        UI.printAllDates(dates,users,sel.datesStack);
         //Remove Loader
-        if(loader) ui.removeElement(loader);
-        
+        if(loader) UI.removeElement(loader);
         //Add Message in form
-        ui.viewMessageForm({form:$,msgBase,type:'success'});
+        UI.viewMessageForm({form:$,msgBase,type:'success'});
     };
 
     //If the form is in editing mode
@@ -86,7 +84,7 @@ async function addDate(evt) {
         date.id = parseInt(val);
 
         //Editing Date in Data Base JSON with fetch
-        api.putDate({date,cb:cbAfterAffectedDate('¡ Editado Correctamente !')});
+        Api.putDate({date,cb:cbAfterAffectedDate('¡ Editado Correctamente !')});
 
         //Set mode value to Editing Dates
         modeDateForm = false;
@@ -96,7 +94,7 @@ async function addDate(evt) {
     };
     
     //Add date after all validations
-    api.addDate({date,cb: cbAfterAffectedDate('¡ Agredado Correctamente !')});
+    Api.addDate({date,cb: cbAfterAffectedDate('¡ Agredado Correctamente !')});
 };
 
 
@@ -119,10 +117,10 @@ function addUser(evt){
     const validate = Object.values(userData).some( val => val === '');
     
     //If not validate form for userData
-    ui.printInputsInvalids({form:$,classEl:'input-danger'});
+    UI.printInputsInvalids({form:$,classEl:'input-danger'});
     
     if(validate){
-        ui.viewMessageForm({form:$,msgBase:'¡Rellena los Campos!',msgAux:'completa la Información para Continuar'});
+        UI.viewMessageForm({form:$,msgBase:'¡Rellena los Campos!',msgAux:'completa la Información para Continuar'});
         return;
     };
     
@@ -130,16 +128,16 @@ function addUser(evt){
     $.reset();
     
     //View Spinner in Form
-    const loader = ui.printSpinnerForm({form:$});
+    const loader = UI.printSpinnerForm({form:$});
 
     //Add user in Data Base 
-    api.addUser({user:userData,cb: async() => {
+    Api.addUser({user:userData,cb: async() => {
         //##########################################################################
-        api.users = await api.getUsers();
+        Api.users = await Api.getUsers();
         //Remove Loader
-        ui.removeElement(loader);
+        UI.removeElement(loader);
         //Add message after adding user
-        ui.viewMessageForm({
+        UI.viewMessageForm({
             form:$,
             msgBase:'¡Usuario Registrado Correctamente!',
             msgAux:'Ya puedes crear citas.',
@@ -148,7 +146,7 @@ function addUser(evt){
 
         //Collapse modal 2 second after being added
         setTimeout(() => {
-            ui.toggleElement({el:sel.modal,text:'show-window'});
+            UI.toggleElement({el:sel.modal,text:'show-window'});
         }, 2000);
 
         //Copy userId in The Navigator ClipBoard
@@ -301,17 +299,13 @@ function readyToDelDate({id,user:{nameUser}}){
     if(!validate) return;
     
     //Delete appoinment after validating With the user
-    const cb = async () => {
+    const cb = async ({dates,users}) => {
         //Showing browser alert that the citation has been removed
         alert('La cita ha sido removida...');
-        
-        //Set values in API
-        api.dates = await api.getDates();
-        
         //Print all remaining citations again
-        ui.printAllDates(api.dates,api.users,sel.datesStack);
-    }
-    api.deleteDate({id,cb})
+        UI.printAllDates(dates,users,sel.datesStack);
+    };
+    Api.deleteDate({id,cb})
 };
 
 //Getting Started to Edit an Appointment
@@ -328,7 +322,7 @@ function readyToEditDate(date){
     changeSubmitForms({submit:submitFormDates,mode:modeDateForm});
 
     //Fill values over inputs
-    ui.fillInputsInForm({value:date,form});
+    UI.fillInputsInForm({value:date,form});
 
 };
 
@@ -348,12 +342,12 @@ function setTextToFilterUsers(evt){
 
     //Get value to input in Page
     const textFiltered = evt.target.value.toLowerCase().trim();
-    ui.printAllUsers({users:filterUser(textFiltered),ctn:sel.usersStack});
+    UI.printAllUsers({users:filterUser(textFiltered),ctn:sel.usersStack});
 };
 
 //Filter users for string value
 function filterUser(str = ''){
-    return api.users.filter(user => user.nameUser.toLowerCase().includes(str));
+    return Api.users.filter(user => user.nameUser.toLowerCase().includes(str));
 };
 
 //Generate HTML to user Element
@@ -398,7 +392,7 @@ function generateScriptingUser({nameUser,telephoneUser, emailUser, typeUser, id}
     btnDelUser.classList.add('btn','del-user');
     btnDelUser.textContent = 'Eliminar';
     btnDelUser.onclick = () => {
-        console.log('Eliminando...');
+        readyToDelUser(id);
     };
     
     const btnEditUser = document.createElement('BUTTON');
@@ -423,6 +417,21 @@ function generateScriptingUser({nameUser,telephoneUser, emailUser, typeUser, id}
 
     return cardUser;
 };
+
+//Ready to del User in Page Users
+function readyToDelUser(id){
+    //Confirm Delete User
+    const validate = confirm(`¿Estás seguro que deseas Eliminar [${id}], Se eliminarán todas sus citas?`);
+    
+    if(!validate) return;
+
+    //Deleted User and All Dates form User
+    const cb = ({users}) => {
+        //Print All Users in Page Users
+        UI.printAllUsers({users,ctn:sel.usersStack});
+    };
+    Api.deleteUser({id,cb});
+}
 
 export {
     addUser,

@@ -1,105 +1,20 @@
 {
-  "users": [
-    {
-      "id": "4773EDELL3",
-      "nameUser": "David Santiago Bulla Díaz",
-      "telephoneUser": "3124235423",
-      "emailUser": "david_elmaquina@hotmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "644D624LK1",
-      "nameUser": "Nestor Guitierrez",
-      "telephoneUser": "3152552621",
-      "emailUser": "nestor_ahi@hotmail.ahi",
-      "typeUser": "0"
-    },
-    {
-      "id": "2RC6FOE7FO",
-      "nameUser": "David Santiago Bulla Díaz",
-      "telephoneUser": "3177714804",
-      "emailUser": "bulla.d.david@gmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "2NEFG6EQ18",
-      "nameUser": "Andres",
-      "telephoneUser": "3124525252",
-      "emailUser": "andrew_master@hotmail.com",
-      "typeUser": "0"
-    },
-    {
-      "id": "H62E17LHD2",
-      "nameUser": "Juan Camilo Bustos Alvira",
-      "telephoneUser": "3145243984",
-      "emailUser": "takumi_god@hotmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "51F43HG3G8",
-      "nameUser": "Nestor",
-      "telephoneUser": "3121234122",
-      "emailUser": "titititi@gmail.com",
-      "typeUser": "0"
-    },
-    {
-      "id": "8QFG7A3ERD",
-      "nameUser": "Julio Antonio Santo Domingo",
-      "telephoneUser": "3114232988",
-      "emailUser": "popopo@gmail.com",
-      "typeUser": "0"
-    },
-    {
-      "id": "D83636G3K2",
-      "nameUser": "Heliana",
-      "telephoneUser": "3234523511",
-      "emailUser": "tremendo@hotmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "RDEEH89QO3",
-      "nameUser": "ilio",
-      "telephoneUser": "3124124141",
-      "emailUser": "eso@gmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "4O2GHEMOO1",
-      "nameUser": "Eso ",
-      "telephoneUser": "31241231",
-      "emailUser": "gmail@gmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "R198FOBO6G",
-      "nameUser": "Nuevo",
-      "telephoneUser": "41241092431",
-      "emailUser": "mecaebien@hotmail.com",
-      "typeUser": "1"
-    },
-    {
-      "id": "3KO154H75A",
-      "nameUser": "David",
-      "telephoneUser": "3145231431",
-      "emailUser": "gmail123@gmail.com",
-      "typeUser": "0"
-    }
-  ],
+  "users": [],
   "dates": [
     {
       "idUser": "R198FOBO6G",
-      "typeDate": "0",
-      "reasonDate": "Eso es lo que la monta",
-      "dateDate": "2022-12-30",
-      "timeDate": "21:07",
+      "typeDate": "1",
+      "reasonDate": "Eso es",
+      "dateDate": "2023-01-10",
+      "timeDate": "15:13",
       "id": 1
     },
     {
       "idUser": "R198FOBO6G",
-      "typeDate": "1",
-      "reasonDate": "Tiene la de Gripa ese man",
-      "dateDate": "2023-01-08",
-      "timeDate": "22:14",
+      "typeDate": "0",
+      "reasonDate": "Tiene el pie hinchado",
+      "dateDate": "2023-01-09",
+      "timeDate": "16:15",
       "id": 2
     }
   ]

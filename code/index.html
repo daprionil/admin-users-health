@@ -12,7 +12,7 @@
     </head>
     <body>
         <!-- Ventana modal para la Creación de Usuarios -->
-        <aside class="ctn-modal-all" id="modal-form">
+        <aside class="ctn-modal-all" id="window-modal">
             <div class="btn-close-modal" id="btnCloseModal">
                 <button>
                     <i class="large material-icons">add</i>
@@ -20,9 +20,9 @@
             </div>
             <section class="ctn-modal-form-all">
                 <!-- Titulo antes del Formulario -->
-                <article class="ctn-modal-form-info">
-                    <div class="ctn-form-title">
-                        <p>¡Crea un Nuevo Usuario!</p>
+            <article class="ctn-modal-form-info">
+                <div class="ctn-form-title">
+                    <p>¡Crea un Nuevo Usuario!</p>
                 </div>
             </article>
             <!-- Ventana de Formulario para la asignación de Valores -->
@@ -61,10 +61,13 @@
         <p class="title-front-page">Administra las Citas de Tu Consultorio</p>
         <div class="btn-show-modal">
             <button class="btn-showmodal" id="btn-adduser-modal" title="Mostrar ventana para Agregar nuevo usuario">Agregar Usuario</button>
+            <a href="usuarios.html" rel="noopener noreferrer">
+                <button class="btn-linkusers" id="btn-linkusers" title="Mostrar ventana para Agregar nuevo usuario" >Ver Usuarios</button>
+            </a>
         </div>
     </header>
     <!-- Contenido total del viewport de Página -->
-    <div class="ctn-all-page">
+    <main class="ctn-all-page">
         <section class="ctn-all-form">
             <article class="ctn-form-all-info">
                 <div class="title-form">
@@ -109,9 +112,8 @@
                 </div>
             </article>
             <article class="ctn-cards-stack" id="dates-stack">
-                
-                <div class="ctn-card">
-                    <!-- Top card - Info user -->
+                <!-- <div class="ctn-card">
+                    <! -- Top card - Info user -- >
                     <div class="ctn-card-info-user">
                         <div class="ctn-card-info-user-text">
                             <p class="ctn-card-info-user-text-name">David Bulla</p>
@@ -120,7 +122,7 @@
                         </div>
                         <div class="ctn-card-info-user-type premium" title="Tipo de Cliente"></div>
                     </div>
-                    <!-- Información de la cita -->
+                    < !-- Información de la cita -- >
                     <div class="ctn-card-info-date">
                         <div class="ctn-card-info-date-type">
                             <p>Medicina Interna</p>
@@ -133,7 +135,7 @@
                         </div>
                     </div>
 
-                    <!-- Botones de Acción -->
+                    < !-- Botones de Acción -- >
                     <div class="ctn-card-btns">
                         <button class="btn btn-del">
                             <i class="large material-icons">delete_forever</i>
@@ -142,10 +144,10 @@
                             <i class="large material-icons">create</i>
                         </button>
                     </div>
-                </div>
+                </div> -->
             </article>
         </section>
-    </div>
+    </main>
 
     <script src="js/app.js" type="module"></script>
 </body>

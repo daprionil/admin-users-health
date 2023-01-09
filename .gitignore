@@ -1,0 +1,6 @@
+*.scss
+*.css.map
+package-lock.json
+node_modules
+diagrama.png
+.cache/

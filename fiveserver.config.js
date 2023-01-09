@@ -1,5 +1,4 @@
 module.exports = {
-    // ...
     watch: './code',
     ignore: [/\.json$/i],
     port: 8086,

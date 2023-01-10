@@ -2,6 +2,7 @@ import * as sel from "./selectors.js";
 import {
     addUser,
     addDate,
+    readyToEditUser,
 } from './functions.js';
 
 import api from "./class/Api.js";
@@ -9,7 +10,6 @@ import ui from "./class/UI.js";
 
 //Script for Page principal
 export default async function(){
-    
     //Set values to App
     api.users = await api.getUsers();
     api.dates = await api.getDates();
@@ -32,4 +32,6 @@ export default async function(){
     });
     
     //Test Code in the March
-}
+    const paramsValue = new URLSearchParams(location.search).get('id_user');
+    readyToEditUser(paramsValue);
+};

@@ -192,6 +192,13 @@ body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form {
 body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form div {
   padding: 5px;
 }
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input [type=submit] {
+  background: #42fb29;
+  font-weight: 600;
+}
+body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input [type=submit].editing-mode {
+  background: #4cc0ff;
+}
 body aside section.ctn-modal-form-all .ctn-modal-form form.ctn-form .ctn-form-input .ctn-inputsradio-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -464,10 +471,13 @@ body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns 
   background: cornflowerblue;
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-edit:hover::before {
-  content: "Eliminar Cita";
+  content: "Editar Cita";
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn i {
   font-size: 1.5em;
+}
+body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card.not-current-date {
+  background: rgb(227, 44, 81);
 }
 body main.ctn-rest-page-users {
   max-width: 1200px;

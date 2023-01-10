@@ -99,19 +99,26 @@ class UI{
     };
 
     //fill in the form inputs with the appointment
-    fillInputsInForm({value,form}){
+    fillInputsInForm({value:valueObj,form}){
         //Iterated over inputs form's
         for(const input of form){
             //access the name property input's
             const name = input.name;
-            //Check if the property exists on the appointment Object
-            if(name in value){
-                //Set value of appointment in the input
-                input.value = value[name];
+
+            //If the input is a Radio Element
+            if(input.type === 'radio'){
+                const inputRadio = form.querySelector(`input[type="radio"][value="${valueObj[name]}"]`);
+                inputRadio.checked = true;
+                return;
+            };
+            //Check if the property exists on the value Object
+            if(name in valueObj){
+                //Set value of object in the input
+                input.value = valueObj[name];
             };
         };
     };
-
+    //Print in the Element Document's all users in Data Base
     printAllUsers({users,ctn}){
         //Clear Elements in content HTML
         this.clearParentElement({el:ctn});

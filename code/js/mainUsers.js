@@ -12,4 +12,4 @@ export default async function(){
     
     //Function for searching Users in DB Json
     sel.inputTextSearchUsers.addEventListener('input', setTextToFilterUsers);
-}
+};

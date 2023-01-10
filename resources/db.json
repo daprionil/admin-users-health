@@ -1,21 +1,73 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "QQ97RPOH5R",
+      "nameUser": "Esa Esa",
+      "telephoneUser": "321314123412",
+      "emailUser": "gmail123@gmail.com",
+      "typeUser": "1"
+    },
+    {
+      "id": "GJ91K4C128",
+      "nameUser": "David",
+      "telephoneUser": "3177714804",
+      "emailUser": "nuevo@gmail.com",
+      "typeUser": "0"
+    },
+    {
+      "id": "RPH13F995E",
+      "nameUser": "Esa Esa",
+      "telephoneUser": "321314123412",
+      "emailUser": "NOEAS@gmail.com",
+      "typeUser": "1"
+    },
+    {
+      "id": "C97E3Q52H8",
+      "nameUser": "Julio Mario Santo Domingo",
+      "telephoneUser": "3145253451",
+      "emailUser": "julio_elmascrack@hotmail.com",
+      "typeUser": "0"
+    },
+    {
+      "id": "JN396N67J3",
+      "nameUser": "Julio Garavito",
+      "telephoneUser": "3127819202",
+      "emailUser": "garavitouu_unu@outlook.es",
+      "typeUser": "1"
+    }
+  ],
   "dates": [
     {
-      "idUser": "R198FOBO6G",
+      "idUser": "EJMO4HJ473",
       "typeDate": "1",
-      "reasonDate": "Eso es",
-      "dateDate": "2023-01-10",
-      "timeDate": "15:13",
+      "reasonDate": "El paciente presenta hinchazón en un dedo del Pie, según lo observado a simple vista se trata de un Hongo dermalgia.",
+      "dateDate": "2023-02-10",
+      "timeDate": "18:30",
       "id": 1
     },
     {
-      "idUser": "R198FOBO6G",
-      "typeDate": "0",
-      "reasonDate": "Tiene el pie hinchado",
-      "dateDate": "2023-01-09",
-      "timeDate": "16:15",
+      "idUser": "39PLD4316H",
+      "typeDate": "1",
+      "reasonDate": "Ya está chimba, vibroso",
+      "dateDate": "2023-01-10",
+      "timeDate": "18:00",
       "id": 2
+    },
+    {
+      "idUser": "39PLD4316H",
+      "typeDate": "0",
+      "reasonDate": "Está malito",
+      "dateDate": "2023-01-09",
+      "timeDate": "18:07",
+      "id": 3
+    },
+    {
+      "idUser": "RPH13F995E",
+      "typeDate": "1",
+      "reasonDate": "Esa es mi papá",
+      "dateDate": "2023-01-09",
+      "timeDate": "21:26",
+      "id": 4
     }
   ]
 }

@@ -3,6 +3,7 @@ import * as sel from './selectors.js';
 import Api from './class/Api.js';
 
 let modeDateForm = false;
+let modeUserForm = false;
 
 //Execute with submit form create dates
 async function addDate(evt) {
@@ -47,7 +48,7 @@ async function addDate(evt) {
         });
         return;
     };
-    
+
     //If the userID in the form doesn't exist
     const userExiste = await Api.validateGetUser(date.idUser);
 
@@ -59,6 +60,18 @@ async function addDate(evt) {
         });
         return;
     };
+
+    //If date [dateDate, timeDate] is less than current
+    const dateLessCurrent = new Date(`${date.dateDate} ${date.timeDate}`) - new Date();
+    if(!(dateLessCurrent > 0)){
+        //View message by invalid userId
+        UI.viewMessageForm({
+            form:$,msgBase:'¡ Fecha Inválida !',
+            msgAux:' Ingresa una Fecha superior a la Actual'
+        });
+        return;
+    };
+
     
     //View Spinner in Form
     const loader = UI.printSpinnerForm({form:$});
@@ -124,34 +137,53 @@ function addUser(evt){
         return;
     };
     
-    //Reset all form
-    $.reset();
-    
     //View Spinner in Form
     const loader = UI.printSpinnerForm({form:$});
-
-    //Add user in Data Base 
-    Api.addUser({user:userData,cb: async() => {
-        //##########################################################################
-        Api.users = await Api.getUsers();
+    
+    //Actions after affected user in form
+    const cbAfterAffectedUser = (msgText) => () => {
         //Remove Loader
         UI.removeElement(loader);
+        
         //Add message after adding user
         UI.viewMessageForm({
             form:$,
-            msgBase:'¡Usuario Registrado Correctamente!',
+            msgBase:msgText,
             msgAux:'Ya puedes crear citas.',
             type:'success'
         });
-
+        
         //Collapse modal 2 second after being added
         setTimeout(() => {
             UI.toggleElement({el:sel.modal,text:'show-window'});
-        }, 2000);
-
+        }, 1000);
+        
         //Copy userId in The Navigator ClipBoard
         navigator.clipboard.writeText(userData.id);
-    }});
+    };
+
+    //Reset all form
+    $.reset();
+    //If mode is Edit Mode
+    if(modeUserForm){
+        //Set value previous in UserDate to id in userDate in form
+        const submitForm = $.querySelector('input[type="submit"]');
+        userData.id = submitForm.dataset.id;
+
+        //After Actions to edit user
+        Api.putUser({user:userData,cb:cbAfterAffectedUser('¡Usuario Modificado Correctamente!')});
+        
+        //Change mode user form
+        modeUserForm = false;
+        
+        //Change value to text in submit form's
+        changeSubmitForms({submit:submitForm, mode:modeUserForm});
+        return;
+    };
+    
+
+    //Add user in Data Base 
+    Api.addUser({user:userData,cb:cbAfterAffectedUser('¡Usuario Registrado Correctamente!')});
 };
 
 
@@ -197,16 +229,19 @@ function sortDatesFiltered(dates){
 
         return aTimeDate - bTimeDate;
     });
-}
+};
 
 //Generate Scripting HTML for each of the appointments
 function generateScriptingDate(date){
     const {idUser, typeDate, reasonDate, dateDate, timeDate, user} = date;
     const {telephoneUser, nameUser, typeUser} = user;
 
+    const validateCurrentDate = new Date(`${dateDate} ${timeDate}`) - new Date();
+    const classToCardDateCurrent = validateCurrentDate > 0 ? 'current-date':'not-current-date';
+
     //Create main box for date
     const dateBox = document.createElement('DIV');
-    dateBox.classList.add('ctn-card');
+    dateBox.classList.add('ctn-card',classToCardDateCurrent);
 
     //Create Element Info User in Card
 
@@ -336,6 +371,30 @@ function changeSubmitForms({submit,mode}){
     submit.classList.remove('editing-mode');
 };
 
+//Ready to Edit user in Page Main from Page Users
+function readyToEditUser(paramsValue){
+    if(paramsValue){
+        //Get User
+        const userIdParam = Api.users.find(user => user.id === paramsValue);
+        if(!userIdParam) return;
+        //Set values User in Form Add users
+        UI.fillInputsInForm({value:userIdParam,form:sel.formModal});
+
+        //Toggle Modal In Page Main
+        UI.toggleElement({el:sel.modal,text:'show-window'});
+
+        //Set mode form
+        modeUserForm = true;
+
+        //Mode Submit in form
+        const submit = sel.formModal.querySelector('input[type="submit"]');
+        submit.dataset.id = userIdParam.id;
+
+        //Change value to text in submit Form
+        changeSubmitForms({submit,mode:modeUserForm});
+    };
+};
+
 //############ PAGE USERS ################
 function setTextToFilterUsers(evt){
     evt.preventDefault();
@@ -395,12 +454,9 @@ function generateScriptingUser({nameUser,telephoneUser, emailUser, typeUser, id}
         readyToDelUser(id);
     };
     
-    const btnEditUser = document.createElement('BUTTON');
-    btnEditUser.classList.add('btn','edit-user');
-    btnEditUser.textContent = 'Editar';
-    btnEditUser.onclick = () => {
-        console.log('Editando...');
-    };
+    const btnEditUser = document.createElement('A');
+    btnEditUser.href = `/code/index.html?id_user=${id}`;
+    btnEditUser.innerHTML = `<button class="btn edit-user">Editar</button>`;
 
     //Adding Btns in BottomCardCtnBts
     bottomCardCtnBtns.appendChild(btnDelUser);
@@ -431,7 +487,8 @@ function readyToDelUser(id){
         UI.printAllUsers({users,ctn:sel.usersStack});
     };
     Api.deleteUser({id,cb});
-}
+};
+
 
 export {
     addUser,
@@ -439,5 +496,6 @@ export {
     generateScriptingDate,
     fillDatesByUsers,
     setTextToFilterUsers,
-    generateScriptingUser
+    generateScriptingUser,
+    readyToEditUser
 };

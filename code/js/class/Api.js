@@ -20,7 +20,7 @@ class Api{
         return this.users.some(user => user.id === id);
     };
 
-    //Add users in the DB.json #$%AA
+    //Add users in the DB.json
     async addUser({user,cb}){
         //URL by Fetch
         const url = `${this.route}/users/`;
@@ -43,6 +43,30 @@ class Api{
         };
     };
 
+    //Edit user in the DB.json 
+    async putUser({user,cb}){
+        //URL for Fetch
+        const url = `${this.route}/users/${user.id}`;
+        
+        //Options to fetch in Method
+        const options = {
+            method:'PUT',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(user)
+        };
+
+        try {
+            await fetch(url,options);
+            //Set users in Class Value
+            this.users = await this.getUsers();
+            //Execute Function
+            cb();
+        } catch (err) {
+            console.log(err);
+        }
+    }
     //Get all Users in DBJson
     async getUsers(){
         //Get all dates in Data Base
@@ -80,14 +104,11 @@ class Api{
     async deleteDatesByUser(id){
         //Get dates by User
         try {
+            //Filter Dates by Id user
             const data = this.dates.filter(date => date.idUser === id);
 
             //Iterated Data to Delete Dates one by one.
-            data.forEach(({id}) => {
-                console.log(id);
-                this.deleteDate({id});
-            });
-
+            data.forEach(({id}) => this.deleteDate({id}));
         } catch (err) {
             console.log(err);
         };

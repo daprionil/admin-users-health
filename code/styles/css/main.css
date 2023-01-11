@@ -124,7 +124,7 @@ body {
 body aside {
   position: fixed;
   background: rgb(255, 255, 255);
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -239,7 +239,7 @@ body aside.show-window {
   left: 0vw;
 }
 body aside.show-window .btn-close-modal {
-  left: 90%;
+  left: 86vw;
   background: red;
 }
 body aside.show-window .btn-close-modal button {
@@ -255,6 +255,10 @@ body header.ctn-front-page {
 }
 body header.ctn-front-page p {
   display: block;
+}
+body header.ctn-front-page .btn-show-modal {
+  display: flex;
+  gap: 5px;
 }
 body header.ctn-front-page .btn-show-modal button {
   border-radius: 10px;
@@ -455,8 +459,8 @@ body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns 
   color: white;
   padding: 2px 5px;
   font-size: 1em;
-  top: -77%;
-  left: 19%;
+  top: -127%;
+  left: -52%;
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn:hover {
   box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.5);
@@ -465,19 +469,23 @@ body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns 
   background: red;
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-del:hover::before {
+  font-size: 0.8rem;
+  text-align: center;
   content: "Eliminar Cita";
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-edit {
   background: cornflowerblue;
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn.btn-edit:hover::before {
+  font-size: 0.8rem;
+  text-align: center;
   content: "Editar Cita";
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card .ctn-card-btns .btn i {
   font-size: 1.5em;
 }
 body main.ctn-all-page .ctn-cards-all .ctn-cards-stack .ctn-card.not-current-date {
-  background: rgb(227, 44, 81);
+  background: rgb(161, 193, 243);
 }
 body main.ctn-rest-page-users {
   max-width: 1200px;
@@ -487,7 +495,7 @@ body main.ctn-rest-page-users {
 body main.ctn-rest-page-users .ctn-info-page-users .ctn-info-text-page {
   margin: 0 auto;
   width: fit-content;
-  padding: 10px;
+  padding: 10px 5px;
   font-weight: 600;
   border-bottom: 2px solid rgb(0, 0, 0);
 }
@@ -501,13 +509,13 @@ body main.ctn-rest-page-users .ctn-users-searching {
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   grid-gap: 5px;
-  padding: 10px;
+  padding: 10px 5px;
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user {
   background: rgb(250, 250, 250);
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 1px 10px rgba(0, 94, 255, 0.2039215686);
 }
@@ -536,8 +544,13 @@ body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user .btns-card-user {
+  align-self: flex-end;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user .btns-card-user .btn {
   border-radius: 5px;
@@ -556,8 +569,8 @@ body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .
   color: white;
   padding: 2px 5px;
   font-size: 1em;
-  top: -150%;
-  left: -3%;
+  top: -113%;
+  left: -100%;
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user .btns-card-user .btn:hover {
   box-shadow: 0 5px 10px rgba(0, 94, 255, 0.2039215686);
@@ -566,12 +579,16 @@ body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .
   background: red;
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user .btns-card-user .btn.del-user:hover::before {
+  font-size: 0.8rem;
+  text-align: center;
   content: "Eliminar Usuario";
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user .btns-card-user .btn.edit-user {
   background: #0e87ff;
 }
 body main.ctn-rest-page-users .ctn-users-searching .ctn-cards-users .card-user .ctn-bottom-card-user .btns-card-user .btn.edit-user:hover::before {
+  font-size: 0.8rem;
+  text-align: center;
   content: "Editar Usuario";
 }
 

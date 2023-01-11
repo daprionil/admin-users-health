@@ -449,14 +449,15 @@ function generateScriptingUser({nameUser,telephoneUser, emailUser, typeUser, id}
 
     const btnDelUser = document.createElement('BUTTON');
     btnDelUser.classList.add('btn','del-user');
-    btnDelUser.textContent = 'Eliminar';
+    btnDelUser.innerHTML = `<i class="large material-icons">delete_forever</i>`;
     btnDelUser.onclick = () => {
         readyToDelUser(id);
     };
     
     const btnEditUser = document.createElement('A');
+    btnEditUser.classList.add('btn','edit-user');
     btnEditUser.href = `/code/index.html?id_user=${id}`;
-    btnEditUser.innerHTML = `<button class="btn edit-user">Editar</button>`;
+    btnEditUser.innerHTML = `<i class="large material-icons">create</i>`;
 
     //Adding Btns in BottomCardCtnBts
     bottomCardCtnBtns.appendChild(btnDelUser);

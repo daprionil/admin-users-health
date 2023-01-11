@@ -54,18 +54,8 @@ Otra de las Funcionalidades es la vista de Citas creadas, las citas que se encue
 
 Y el botón del Modal.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ![Página principal, Agregar Citas](./resources/readme_files/main_page.PNG)
 ![Validación del Formulario](./resources/readme_files/main_page_validation_values.PNG)
-=======
-![Página principal, Agregar Citas](.\resources\readme_files\main_page.PNG)
-![Validación del Formulario](./resources//readme_files/main_page_validation_values.PNG)
->>>>>>> origin
-=======
-![Página principal, Agregar Citas](.\resources\readme_files\main_page.PNG)
-![Validación del Formulario](./resources//readme_files/main_page_validation_values.PNG)
->>>>>>> 257c50a7405fe68ed4ed2376cef2f114925e05f8
 
 ## __Modal para Agregar Usuarios__
 
